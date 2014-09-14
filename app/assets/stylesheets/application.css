@@ -1,3 +1,10 @@
 #main{
 	background-color: #ccc;
 }
+
+li{
+	list-style-type: none;
+}
+
+.create_event{
+}

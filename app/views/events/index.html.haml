@@ -1,2 +1,16 @@
-%h2
-  index
+%button.create Create Event
+%div.create_event
+  = form_for(@new_event) do |f|
+    %ul
+      %li= f.label :title
+      %li= f.text_field :title
+
+      %li= f.label :description
+      %li= f.text_area :desc
+
+      %li= f.submit 'Create Event'
+
+%div.events
+  - @event.each do |event|
+    %li= event.title
+    %li= event.desc
