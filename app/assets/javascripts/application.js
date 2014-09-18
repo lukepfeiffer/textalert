@@ -15,7 +15,7 @@
 //= require_tree .
 $(function(){
   $('.title').click(function(){
-    $('.desc').toggle(100);
+    $('.description').toggle(100);
   });
 
   $('.create').click(function(){
