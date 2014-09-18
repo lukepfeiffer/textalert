@@ -1,4 +1,5 @@
 #main{
+	font-family: arial;
 	background-color: #ccc;
 }
 
@@ -6,5 +7,49 @@ li{
 	list-style-type: none;
 }
 
+label{
+	font-weight: bold;
+}
+
+input{
+	height: 15px;
+	width: 300px;
+}
+
+textarea{
+	width: 300px;
+}
+
+.event{
+	width: 400px;
+	border: 1px solid #000;
+	border-bottom: none;
+}
+
+.title{
+	font-weight: bold;
+	margin: 0 0 0 3px;
+}
+
+.title:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.desc{
+	margin: 0 0 0 6px;
+}
+
+
 .create_event{
+}
+
+.create{
+	width: 150px;
+  text-decoration: underline;
+}
+
+.create:hover{
+	cursor: pointer;
+	font-weight: bold;
 }

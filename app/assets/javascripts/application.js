@@ -14,7 +14,11 @@
 //= require jquery_ujs
 //= require_tree .
 $(function(){
-  $('.create').click(function(){
-		$('.create_event').toggle;
+  $('.title').click(function(){
+    $('.desc').toggle(100);
   });
+
+  $('.create').click(function(){
+    $('.create_event').toggle('100');
+  $});
 });

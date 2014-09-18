@@ -1,5 +1,5 @@
-%button.create Create Event
-%div.create_event
+%p.create Create New Event?
+%div.create_event{ style: 'display: none;' }
   = form_for(@new_event) do |f|
     %ul
       %li= f.label :title
@@ -8,9 +8,17 @@
       %li= f.label :description
       %li= f.text_area :desc
 
-      %li= f.submit 'Create Event'
+      %li= f.submit 'Create Event', class: 'submit'
 
 %div.events
-  - @event.each do |event|
-    %li= event.title
-    %li= event.desc
+  - @events.each do |event|
+    %div.event
+      %li.title= event.title
+      %li.desc{ style: 'display: none;'}= event.desc
+      -# %li.update
+      -#   %button
+      -#   = form_for(@edit_event) do |f|
+      -#     %ul
+
+
+= will_paginate @events
