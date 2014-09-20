@@ -11,6 +11,10 @@ label{
   font-weight: bold;
 }
 
+.delete{
+  float: right;
+}
+
 .event_title{
   height: 25px;
   width: 300px;

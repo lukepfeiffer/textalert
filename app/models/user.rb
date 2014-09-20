@@ -1,3 +1,3 @@
-class User < ActiveRecored::Base
-  has_many :events
+class User < ActiveRecord::Base
+  include Authem::User
 end

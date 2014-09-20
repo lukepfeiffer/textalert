@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918224351) do
+ActiveRecord::Schema.define(version: 20140920163020) do
+
+  create_table "authem_sessions", force: true do |t|
+    t.string   "role",                    null: false
+    t.integer  "subject_id",              null: false
+    t.string   "subject_type",            null: false
+    t.string   "token",        limit: 60, null: false
+    t.datetime "expires_at",              null: false
+    t.integer  "ttl",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authem_sessions", ["expires_at", "subject_type", "subject_id"], name: "index_authem_sessions_subject"
+  add_index "authem_sessions", ["expires_at", "token"], name: "index_authem_sessions_on_expires_at_and_token", unique: true
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -19,6 +33,14 @@ ActiveRecord::Schema.define(version: 20140918224351) do
     t.datetime "created_at"
     t.integer  "user_id"
     t.datetime "send_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                           null: false
+    t.string   "password_digest",                 null: false
+    t.string   "password_reset_token", limit: 60, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.paginate(page: params[:page], order: 'created_at DESC', per_page: 15)
+    # @events = Event.paginate(page: params[:page], order: 'created_at DESC', per_page: 15)
+    @events = Event.all
     @new_event = Event.new
   end
 
@@ -9,6 +10,11 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to events_path
     end
+  end
+
+  def destroy
+    Event.find(params[:id]).destroy
+    redirect_to events_path
   end
 
   def events_params
