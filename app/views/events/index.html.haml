@@ -24,7 +24,7 @@
         %li.send_at
         Send At:
         =event.send_at
-      = link_to 'Delete Event', events_path(event), method: :delete, confirm: 'Are You Sure?', class: 'delete'
+      = link_to 'Delete Event', event_path(event), method: :delete, confirm: 'Are You Sure?', class: 'delete'
       -# %li.update
       -#   %button
       -#   = form_for(@edit_event) do |f|
