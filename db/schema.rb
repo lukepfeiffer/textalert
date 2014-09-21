@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920163020) do
+ActiveRecord::Schema.define(version: 20140921131455) do
 
   create_table "authem_sessions", force: true do |t|
     t.string   "role",                    null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140920163020) do
     t.string   "password_reset_token", limit: 60, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone_number"
   end
 
 end

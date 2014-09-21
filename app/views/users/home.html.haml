@@ -1,0 +1,28 @@
+%div
+  %p Sign Up
+  = form_for(@user) do |f|
+    %li
+      = f.label :email
+      = f.text_field :email, class: 'text_field'
+      = f.label :phone_number
+      = f.text_field :phone_number, class: 'phone_number'
+
+    %li= f.label :password
+    %li= f.password_field :password, class: 'text_field'
+
+    %li= f.label :password_confirmation
+    %li= f.password_field :password_confirmation, class: 'text_field'
+
+    %li= f.submit 'Create Account'
+
+  %p Sign In
+  = form_tag(sessions_path) do
+    - flash.keys.each do |key|
+      %p{class: key}= flash[key.to_sym]
+    %li= label_tag :email
+    %li= text_field_tag :email, nil
+
+    %li= label_tag :password
+    %li= password_field_tag :password, nil
+
+    %li= submit_tag 'Sign In', class: 'submit'

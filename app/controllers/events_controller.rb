@@ -21,7 +21,8 @@ class EventsController < ApplicationController
     params.require(:event).permit(
       :title,
       :desc,
-      :send_at
+      :send_at,
+      :user_id
     )
   end
 end
