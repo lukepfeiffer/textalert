@@ -11,6 +11,6 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out_user
-    redirect_to root_path
+    redirect_to :root
   end
 end

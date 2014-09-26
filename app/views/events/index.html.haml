@@ -5,6 +5,8 @@
 %div.create_event{ style: 'display: none;' }
   = form_for(@new_event) do |f|
     %ul
+      %li= f.hidden_field :user_id, value: current_user.id
+
       %li= f.label :title
       %li= f.text_field :title, class: 'event_title'
 
@@ -15,16 +17,17 @@
 
       %li= f.submit 'Create Event', class: 'submit'
 
-%div.events
-  - @events.each do |event|
+%div
+  - current_user.events.each do |event|
     %div.event
-      %li.title= event.title
+      %li
+        %span.title= event.title
+        = link_to 'Delete Event', event_path(event), method: :delete, confirm: 'Are You Sure?', class: 'delete'
       %span.description{ style: 'display: none;'}
         %li.desc= event.desc
         %li.send_at
         Send At:
         =event.send_at
-      = link_to 'Delete Event', event_path(event), method: :delete, confirm: 'Are You Sure?', class: 'delete'
       -# %li.update
       -#   %button
       -#   = form_for(@edit_event) do |f|
