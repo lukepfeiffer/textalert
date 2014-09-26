@@ -21,4 +21,8 @@ class UsersController < ApplicationController
       :phone_number
     )
   end
+
+  def show
+
+  end
 end

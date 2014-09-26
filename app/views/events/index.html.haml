@@ -1,5 +1,5 @@
 %div.user
-  %p= current_user.email
+  %p= link_to current_user.email, user_path(current_user)
   %p= link_to 'Sign Out', sign_out_path, method: :delete, class: 'sign_out'
 %p.create Create New Event?
 %div.create_event{ style: 'display: none;' }
@@ -12,6 +12,7 @@
 
       %li= f.label :description
       %li= f.text_area :desc
+
       %li= f.label :datetime, 'Send Text At:'
       %li= f.datetime_select :send_at
 
