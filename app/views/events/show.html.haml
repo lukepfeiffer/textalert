@@ -1,0 +1,17 @@
+%div#current_event
+  Current Event
+  %li= @event.title
+  %li= @event.desc
+  %li= @event.send_at
+%div
+  = form_for(@event) do |f|
+    %li= f.label :title
+    %li= f.text_field :title, class: 'event_title'
+
+    %li= f.label :description
+    %li= f.text_area :desc
+
+    %li= f.label :datetime
+    %li= f.datetime_select :send_at
+
+    %li= f.submit 'Edit', class: 'submit'
