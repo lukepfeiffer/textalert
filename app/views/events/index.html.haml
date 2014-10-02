@@ -1,6 +1,7 @@
 %div.user
   %p= current_user.email
   %p= link_to 'Sign Out', sign_out_path, method: :delete, class: 'sign_out'
+  %p= @message
 %p.create Create New Event?
 %div.create_event{ style: 'display: none;' }
   = form_for(@new_event) do |f|
@@ -13,7 +14,7 @@
       %li= f.label :description
       %li= f.text_area :desc
       %li= f.label :datetime, 'Send Text At:'
-      %li= f.datetime_select :send_at
+      %li= f.datetime_select :send_at, default: 2.days.from_now, ampm: 'true', order:[:month, :day, :year]
 
       %li= f.submit 'Create Event', class: 'submit'
 
@@ -27,7 +28,7 @@
         %li.desc= event.desc
         %li.send_at
           %p Send At:
-          =event.send_at
+          = event.send_at
         %li= link_to 'Edit', event_path(event.id)
 
 
