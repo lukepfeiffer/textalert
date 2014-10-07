@@ -10,12 +10,13 @@ task :notify => :environment do
     config.auth_token = auth_token
   end
 
-  client = Twilio::REST::Client.new
+  client = Twilio::REST::Client.new account_sid, auth_token
 
   events.each do |event|
-    client.message.create(
+    client.messages.create(
       from: '+19713404074',
       to: event.user.phone_number,
-      body: event.titlle + event.desc
+      body: event.title + ': ' + event.desc
+     )
   end
 end
