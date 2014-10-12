@@ -18,5 +18,7 @@ task :notify => :environment do
       to: event.user.phone_number,
       body: event.title + ': ' + event.desc
      )
+    event.delete
   end
+
 end
